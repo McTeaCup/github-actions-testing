@@ -21,5 +21,7 @@ jobs:
     needs: [python-code-format]
     runs-on: ubuntu-latest
     steps:
+      - name: check files
+        run: ls -la
       - name: run unit tests 
         run: python experiment_unittest.py
