@@ -16,7 +16,7 @@ jobs:
           black .
           autopep8 --recursive --in-place --aggressive --aggressive .
           isort .
-
+jobs:
   run-unittests:
     needs: python-code-format
     runs-on: ubuntu-latest
