@@ -16,5 +16,10 @@ jobs:
           black .
           autopep8 --recursive --in-place --aggressive --aggressive .
           isort .
+
+  unittest:
+    needs: [python-code-format]
+    runs-on: ubuntu-latest
+    steps:
       - name: run unit tests 
         run: python experiment_unittest.py
