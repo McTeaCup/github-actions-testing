@@ -21,6 +21,7 @@ jobs:
     needs: [python-code-format]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: check files
         run: ls -la
       - name: run unit tests 
