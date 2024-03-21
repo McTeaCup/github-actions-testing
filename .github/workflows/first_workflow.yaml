@@ -1,0 +1,19 @@
+name: Python Formater Checker
+
+on: push
+
+jobs:
+  python-code-format:
+  runs-on: ubuntu-20.04
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v4
+      with:
+        python-version: "3.11.4"
+    - name: Install package
+      run: pip install black autopep8 isort
+    - name: Formatter
+      run: 
+        black.
+        autopip8 --recursive --in-place --agressive --aggressive .
+        isort .
