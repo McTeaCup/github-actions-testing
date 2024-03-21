@@ -2,7 +2,7 @@ name: Format Python Code
 on: push
 jobs:
   python-code-format:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v4
@@ -16,3 +16,9 @@ jobs:
           black .
           autopep8 --recursive --in-place --aggressive --aggressive .
           isort .
+
+  run-unittests:
+    needs: python-code-format
+    runs-on: ubuntu-latest
+    - steps:
+      run: python experiment_unittest.py
