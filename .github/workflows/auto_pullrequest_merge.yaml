@@ -11,10 +11,6 @@ jobs:
     env:
       BRANCH_TO_MERGE: ${{ github.event.inputs.branch_to }}
       
-    steps:
-      - uses: actions/checkout@v2
-        run: python experiment_unittest.py
-  
   mergecode:
     runs-on: ubuntu-latest
 
