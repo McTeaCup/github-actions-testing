@@ -1,25 +1,33 @@
-name: Auto Merge Pullrequest
+name: Auto Merge Pull Request
+
 on:
   pull_request:
     branches:
       - '*'
-    types: [opend]
+    types: [opened]
 
 jobs:
   verifycode:
     runs-on: ubuntu-latest
-    env:
-      BRANCH_TO_MERGE: ${{ github.event.inputs.branch_to }}
-      
-  mergecode:
-    runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checokout@v2
+      - name: Checkout pull request branch
+        uses: actions/checkout@v2
+
+  mergecode:
+    needs: verifycode
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v2
         with:
           ref: main
-      - id: extract_branch
-      - run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}" \
-          git fetch origin ${{ steps.extract_branch.outputs.branch }}:${{ steps.extract_branch.outputs.branch }} \
-          git merge --no-ff --no-edit ${{ steps.extract_branch.outputs.branch }} \
+
+      - name: Extract branch name
+        id: extract_branch
+        run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+
+      - name: Merge branch into main
+        run: |
+          git fetch origin ${{ steps.extract_branch.outputs.branch }}:${{ steps.extract_branch.outputs.branch }}
+          git merge --no-ff --no-edit ${{ steps.extract_branch.outputs.branch }}
           git push origin main
