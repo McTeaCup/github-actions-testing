@@ -31,3 +31,5 @@ jobs:
           git fetch origin ${{ steps.extract_branch.outputs.branch }}:${{ steps.extract_branch.outputs.branch }}
           git merge --no-ff --no-edit ${{ steps.extract_branch.outputs.branch }}
           git push origin main
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
