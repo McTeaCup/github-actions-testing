@@ -6,31 +6,25 @@ on:
     types: [opend]
 
 jobs:
-  verify code:
+  verifycode:
     runs-on: ubuntu-latest
     env:
       BRANCH_TO_MERGE: ${{ github.event.inputs.branch_to }}
       
-      steps:
-        - name: Run unit tests
-          uses: actions/checkout@v2
-          run: python experiment_unittest.py
+    steps:
+      - uses: actions/checkout@v2
+        run: python experiment_unittest.py
   
-  merge code:
+  mergecode:
     runs-on: ubuntu-latest
 
     steps:
-    - name: checkout main branch
-      uses: actions/checokout@v2
-      with:
-        ref: main
-
-    - name: Extract branch name
-      id: extract_branch
-      run: echo "::set-output name=branch::${GITHUB_REF#ref/heads/}"
-
-    - name: Merge branch into main
-      run: |
-        git fetch origin ${{ steps.extract_branch.outputs.branch }}:${{ steps.extract_branch.outputs.branch }}
-        git merge --no-ff --no-edit ${{ steps.extract_branch.outputs.branch }}
-        git push origin main
+      - uses: actions/checokout@v2
+        with:
+          ref: main
+        
+      - id: extract_branch
+      - run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}" \
+          git fetch origin ${{ steps.extract_branch.outputs.branch }}:${{ steps.extract_branch.outputs.branch }} \
+          git merge --no-ff --no-edit ${{ steps.extract_branch.outputs.branch }} \
+          git push origin main
