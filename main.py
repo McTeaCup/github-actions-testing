@@ -10,7 +10,8 @@ class TestObject():
     
     def get_uuid(self):
         return self.uuid
-    
+
+# just a test
 def create_object(name: str):
     new_object = TestObject(name)
     return new_object
