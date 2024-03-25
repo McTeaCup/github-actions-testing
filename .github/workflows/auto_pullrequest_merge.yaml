@@ -4,10 +4,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  runs-on: ubuntu-latest
-  env:
-    BRANCH_TO_MERGE: ${{ github.event.inputs.branch_to }}
-      
     runs-on: ubuntu-latest
     steps:
       - name: checkout main branch
