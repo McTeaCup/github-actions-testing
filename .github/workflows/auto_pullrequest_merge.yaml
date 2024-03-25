@@ -3,7 +3,7 @@ name: Auto merge pullrequest
 on:
   push:
   pull_request:
-    types: [opened, synchronize]
+    types: [created]
 
 jobs:
   job1:
