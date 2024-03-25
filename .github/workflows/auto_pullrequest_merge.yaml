@@ -1,6 +1,7 @@
 name: Auto Merge Pull Request
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - '*'
