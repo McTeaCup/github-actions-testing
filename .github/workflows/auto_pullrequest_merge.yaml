@@ -1,19 +1,10 @@
-name: Auto Merge Pullrequest
+name: Auto merge pullrequest
 
-on: 
-  workflow_dispatch:
+on: [pull_request, workflow_dispatch]
 
 jobs:
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout main branch
-        uses: actions/checokout@v2
-        with:
-          ref: main
-
-        id: extract_branch
-        run: |
-          echo "::set-output name=branch::${GITHUB_REF#ref/heads/}"
-          git fetch origin ${{ steps.extract_branch.outputs.branch }}:${{ steps.extract_branch.outputs.branch }}
-          git merge --no-ff --no-edit ${{ steps.extract_branch.outputs.branch }}
-          git push origin main
+      - name: TEST_1
+        run: echo "Test 1 works"
