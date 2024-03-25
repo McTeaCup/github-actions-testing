@@ -1,6 +1,9 @@
 name: Auto merge pullrequest
 
-on: [pull_request, workflow_dispatch]
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   job1:
@@ -8,3 +11,7 @@ jobs:
     steps:
       - name: TEST_1
         run: echo "Test 1 works"
+      
+      - name: Check Pullrequest
+        run: echo ${{ github.event.pull_request.title }}
+        
