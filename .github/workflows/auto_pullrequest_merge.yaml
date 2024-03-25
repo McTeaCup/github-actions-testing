@@ -3,7 +3,7 @@ name: Auto merge pullrequest
 on:
   push:
   pull_request:
-    types: [created]
+    types: [created, opened, reopened, edited]
 
 jobs:
   job1:
@@ -13,5 +13,5 @@ jobs:
         run: echo "Test 1 works"
       
       - name: Check Pullrequest
-        run: echo ${{ github.event.pull_request.title }}
+        run: echo ${{ github.event.pull_request.number }}
         
