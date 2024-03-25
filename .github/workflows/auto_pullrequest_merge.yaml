@@ -12,6 +12,6 @@ jobs:
       - name: Check Pullrequest
         run: |
           echo TITLE: ${{ github.event.pull_request.title }} \
-          echo BODY: ${{ github.event.pull_request.body }}
-          echo WRITTEN BY: ${{ github.event.pull_request.author }}
+          echo BODY: ${{ github.event.pull_request.body }} \
+          echo WRITTEN BY: ${{ github.event.pull_request.actor }}
         
