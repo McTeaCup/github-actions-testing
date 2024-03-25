@@ -1,7 +1,6 @@
 name: Auto merge pullrequest
 
 on:
-  push:
   pull_request:
     types: [created, opened, reopened, edited]
 
