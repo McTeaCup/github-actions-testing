@@ -2,7 +2,7 @@ name: Auto merge pullrequest
 
 on:
   pull_request:
-    types: [created, opened, reopened, edited]
+    types: [opened, synchronize, reopened]
 
 jobs:
   job1:
