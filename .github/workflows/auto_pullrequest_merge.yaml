@@ -10,8 +10,7 @@ jobs:
         run: echo "Test 1 works"
       
       - name: Check Pullrequest
-        run: |
-          echo TITLE: ${{ github.event.pull_request.title }} \
-          echo BODY: ${{ github.event.pull_request.body }} \
-          echo WRITTEN BY: ${{ github.event.pull_request.actor }}
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
         
