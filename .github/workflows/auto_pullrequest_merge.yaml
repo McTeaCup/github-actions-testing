@@ -6,9 +6,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: TEST_1
+      - name: Get Data From Pull Request
         env:
-          PULLREQUEST: ${{github.event.pullrequest}}
+          PULLREQUEST: ${{ github.event.pull_request }}
         run: echo "$PULLREQUEST.id"
       
       - name: Check Pullrequest
