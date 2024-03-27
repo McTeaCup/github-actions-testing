@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: TEST_1
-        run: echo "Test 1 works"
+        env:
+          PULLREQUEST: ${{github.event.pullrequest}}
+        run: $PULLREQUEST.id
       
       - name: Check Pullrequest
         env:
