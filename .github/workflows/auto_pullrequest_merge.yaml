@@ -8,8 +8,8 @@ jobs:
     steps:
       - name: Get Data From Pull Request
         env:
-          PULLREQUEST: ${{ github.event.pull_request }}
-        run: echo "$PULLREQUEST.id"
+          PULLREQUEST: ${{ github.event }}
+        run: echo "$PULLREQUEST.number"
       
       - name: Check Pullrequest
         env:
