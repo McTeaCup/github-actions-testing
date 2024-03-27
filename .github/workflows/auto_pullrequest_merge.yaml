@@ -9,7 +9,7 @@ jobs:
       - name: TEST_1
         env:
           PULLREQUEST: ${{github.event.pullrequest}}
-        run: $PULLREQUEST.id
+        run: echo "$PULLREQUEST.id"
       
       - name: Check Pullrequest
         env:
