@@ -8,11 +8,14 @@ jobs:
     steps:
       - name: Get Data From Pull Request
         env:
-          PULL_REQUEST_CREATOR: ${{ github.event.pull_request.user.login }}
-        run: echo "$PULL_REQUEST_CREATOR"
+          PULL_REQUEST_CREATOR: ${{ github.event.pull_request}}
       
       - name: Check Pullrequest
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+        run: | 
+          "$GITHUB_CONTEXT.header"
+          "$GITHUB_CONTEXT.body"
+          "$GITHUB_CONTEXT.user.login"
+        
         
