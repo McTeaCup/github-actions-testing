@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Create Tickets
         env:
-          CAN_BE_MERGED: ${{ github.event.pull_request.mergeable == MergeableState.MERGEABLE }}
+          CAN_BE_MERGED: ${{ github.event.pull_request.mergeable == MERGEABLE }}
         run: echo "$CAN_BE_MERGED"
             
           
