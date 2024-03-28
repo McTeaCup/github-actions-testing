@@ -10,15 +10,21 @@ jobs:
       - name: Check Pullrequest
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$PULLREQUEST_CREATOR" 
+        run: echo "$GITHUB_CONTEXT" 
 
         
       - name: Get Data From Pull Request
         env:
           PULL_REQUEST_CREATOR: ${{ github.event.pull_request.user.login }}
-          PULL_REQUEST_TITLE: ${{ github.event.pull_request.user.login }}
+          PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}
+          PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
+          PULL_REQUEST_FROM_BRANCH: ${{ github.event.pull_request.head_ref }}
+          PULL_REQUEST_TO_BRANCH: ${{ github.event.pull_request.base_ref }}
         run: |
           echo "$PULLREQUEST_CREATOR" 
           echo "$PULLREQUEST_TITLE" 
+          echo "$PULLREQUEST_BODY"
+          echo "$PULLREQUEST_FROM_BRANCH"
+          echo "$PULLREQUEST_TO_BRANCH"
         
         
