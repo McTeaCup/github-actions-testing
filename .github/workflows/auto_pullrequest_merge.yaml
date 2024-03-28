@@ -15,6 +15,6 @@ jobs:
           PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
           PULL_REQUEST_TO_BRANCH: ${{ github.event.pull_request.base.ref }}
           PULL_REQUEST_FROM_BRANCH: ${{ github.event.pull_request.head.ref }}
-          PULL_REQUEST_FROM_DIFF: ${{ github.event.pull_request.commit.files }}
+          PULL_REQUEST_FROM_DIFF: ${{ git diff }}
         
         run: echo "test complete"
