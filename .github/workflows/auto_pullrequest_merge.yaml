@@ -5,9 +5,9 @@ on: pull_request
 jobs:
   get_pull_request_info:
     runs-on: ubuntu-latest
+    
     steps:
-
-      # Print data from pull request
+      # Save variable data from pull request
       - name: Get Data From Pull Request
         env:
           PULL_REQUEST_CREATOR: ${{ github.event.pull_request.user.login }}
@@ -21,9 +21,12 @@ jobs:
 
   make_issue_to_merge:
     runs-on: ubuntu-latest
-    
+
+    #Create an issue that the pullrequest is ready to be merged 
     steps:
       - name: Create Tickets
+        env:
+          PULL_REQUEST_MERGABLE: ${{ github.event.pull_request.mergable }}
         run: |
           if [[ $"PULL_REQUEST_MERGABLE" == true ]]; then
             new_issue_url=$(gh issue create \
