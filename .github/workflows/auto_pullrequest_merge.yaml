@@ -18,9 +18,11 @@ jobs:
           PULL_REQUEST_CREATOR: ${{ github.event.pull_request.user.login }}
           PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}
           PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
+          PULL_REQUEST_BRANCH: ${{ github.event.pull_request.branch }}
         run: |
           echo "$PULLREQUEST_CREATOR" 
           echo "$PULLREQUEST_TITLE" 
           echo "$PULLREQUEST_BODY"
+          echo "$PULLREQUEST_BRANCH"
         
         
