@@ -12,7 +12,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT" 
 
-        
+      # Print data from pull request
       - name: Get Data From Pull Request
         env:
           PULL_REQUEST_CREATOR: ${{ github.event.pull_request.user.login }}
