@@ -18,5 +18,6 @@ jobs:
           PULL_REQUEST_CREATOR: ${{ github.event.pull_request.user.login }}
           PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}
           PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
-          PULL_REQUEST_BRANCH: ${{ github.event.pull_request.base.ref }}
+          PULL_REQUEST_TO_BRANCH: ${{ github.event.pull_request.base.ref }}
+          PULL_REQUEST_FROM_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: echo "test complete"
