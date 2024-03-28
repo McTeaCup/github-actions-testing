@@ -21,7 +21,8 @@ jobs:
 
   make_issue_to_merge:
     runs-on: ubuntu-latest
-
+    permissions:
+      issues: write
     #Create an issue that the pullrequest is ready to be merged 
     steps:
       - name: Create Tickets
