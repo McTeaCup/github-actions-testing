@@ -29,7 +29,9 @@ jobs:
           PULL_REQUEST_MERGABLE: ${{ github.event.pull_request.mergeable }}
         run: |
           if [[ $"PULL_REQUEST_MERGABLE" == MERGEABLE ]]; then
-            new_issue_url=$(gh issue create \
-              --title "Ready to Merge!" \
-              --body "There is a PR ready to merge")
+              new_issue_url=$(gh issue create \
+                --title "Ready to Merge!" \
+                --body "There is a PR ready to merge")
+          fi
+            
           
