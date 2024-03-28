@@ -26,10 +26,8 @@ jobs:
     #Create an issue that the pullrequest is ready to be merged 
     steps:
       - name: Create Tickets
-        env:
-          PULL_REQUEST_MERGABLE: ${{ github.event.pull_request.mergeable }}
         run: |
-          if [[ $"PULL_REQUEST_MERGABLE" == MergeableState.MERGEABLE ]]; then
+          if [[ ${{ github.event.pull_request.mergeable }} == MergeableState.MERGEABLE ]]; then
             echo "IS ABLE TO MERGE"
           fi
             
