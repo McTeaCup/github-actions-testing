@@ -14,8 +14,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: | 
-          echo "$GITHUB_CONTEXT.header"
-          echo "$GITHUB_CONTEXT.body"
+          echo "$GITHUB_CONTEXT.header" \
+          echo "$GITHUB_CONTEXT.body" \
           echo "$GITHUB_CONTEXT.user.login"
         
         
