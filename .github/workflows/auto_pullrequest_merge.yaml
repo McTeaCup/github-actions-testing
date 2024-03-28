@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Create Tickets
         run: |
-          if [[ ${{ github.event.pull_request.mergeable }} == MergeableState.MERGEABLE ]]; then
+          if [[ $github.event.pull_request.mergeable == MergeableState.MERGEABLE ]]; then
             echo "IS ABLE TO MERGE"
           fi
             
