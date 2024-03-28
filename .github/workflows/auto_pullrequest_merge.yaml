@@ -6,14 +6,17 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Check Pullrequest
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$PULLREQUEST_CREATOR" 
+
+        
       - name: Get Data From Pull Request
         env:
           PULL_REQUEST_CREATOR: ${{ github.event.pull_request.user.login }}
           PULL_REQUEST_TITLE: ${{ github.event.pull_request.user.login }}
-      
-      - name: Check Pullrequest
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
           echo "$PULLREQUEST_CREATOR" 
           echo "$PULLREQUEST_TITLE" 
