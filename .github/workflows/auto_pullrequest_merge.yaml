@@ -15,6 +15,18 @@ jobs:
           PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
           PULL_REQUEST_TO_BRANCH: ${{ github.event.pull_request.base.ref }}
           PULL_REQUEST_FROM_BRANCH: ${{ github.event.pull_request.head.ref }}
-          PULL_REQUEST_FROM_MERGABLE: ${{ github.event.pull_request.lastEditedAt }}
+          PULL_REQUEST_MERGABLE: ${{ github.event.pull_request.mergable }}
         
         run: echo "$PULL_REQUEST_FROM_MERGABLE"
+
+  make_issue_to_merge:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Create Tickets
+        run: |
+          if [[ $"PULL_REQUEST_MERGABLE" == true ]]; then
+            new_issue_url=$(gh issue create \
+              --title "Ready to Merge!" \
+              --body "There is a PR ready to merge")
+          
