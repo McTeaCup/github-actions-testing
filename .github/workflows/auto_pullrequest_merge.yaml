@@ -3,14 +3,12 @@ name: Auto merge pullrequest
 on: pull_request
 
 jobs:
-  job1:
+  get_pull_request_info:
     runs-on: ubuntu-latest
     steps:
 
       - name: Check Pullrequest
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT" 
+        
 
       # Print data from pull request
       - name: Get Data From Pull Request
@@ -20,4 +18,6 @@ jobs:
           PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
           PULL_REQUEST_TO_BRANCH: ${{ github.event.pull_request.base.ref }}
           PULL_REQUEST_FROM_BRANCH: ${{ github.event.pull_request.head.ref }}
+          PULL_REQUEST_FROM_DIFF: ${{ github.event.pull_request.diff }}
+        
         run: echo "test complete"
