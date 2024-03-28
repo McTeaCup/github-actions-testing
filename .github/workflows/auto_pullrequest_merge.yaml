@@ -15,6 +15,6 @@ jobs:
           PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
           PULL_REQUEST_TO_BRANCH: ${{ github.event.pull_request.base.ref }}
           PULL_REQUEST_FROM_BRANCH: ${{ github.event.pull_request.head.ref }}
-          PULL_REQUEST_FROM_MERGABLE: ${{ github.event.pull_request.merged }}
+          PULL_REQUEST_FROM_MERGABLE: ${{ github.event.pull_request.mergeable }}
         
         run: echo "test complete"
