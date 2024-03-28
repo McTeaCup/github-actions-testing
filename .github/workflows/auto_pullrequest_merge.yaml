@@ -7,9 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Check Pullrequest
-        
-
       # Print data from pull request
       - name: Get Data From Pull Request
         env:
@@ -18,5 +15,6 @@ jobs:
           PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
           PULL_REQUEST_TO_BRANCH: ${{ github.event.pull_request.base.ref }}
           PULL_REQUEST_FROM_BRANCH: ${{ github.event.pull_request.head.ref }}
+          PULL_REQUEST_FROM_DIFF: ${{ github.event.pull_request.diff }}
         
         run: echo "test complete"
