@@ -17,4 +17,4 @@ jobs:
           PULL_REQUEST_FROM_BRANCH: ${{ github.event.pull_request.head.ref }}
           PULL_REQUEST_FROM_MERGABLE: ${{ github.event.pull_request.lastEditedAt }}
         
-        run: echo "test complete"
+        run: echo "$PULL_REQUEST_FROM_MERGABLE"
