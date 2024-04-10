@@ -1,0 +1,8 @@
+name: push-pull-request-issue
+
+on: [push]
+jobs:
+  read-and-print:
+    runs-on: ubuntu-22.04
+    steps:
+      - echo "Authorh: ${{ github.actor.name }} | Message: {{ push.commits[0].message }}"
