@@ -2,8 +2,8 @@ name: push-pull-request-issue
 
 on: [push]
 permissions:
-  pull-requests: write
   contents: read
+  pull-requests: write
 
 jobs:
   read-and-print:
