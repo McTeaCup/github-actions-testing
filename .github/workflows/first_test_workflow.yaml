@@ -5,5 +5,4 @@ jobs:
   read-and-print:
     runs-on: ubuntu-22.04
     steps:
-      - run: echo ${{ github.actor }}
-      - run: echo ${{ github.event.commits[0].message }}
+      - run: echo "commiter" ${{ github.actor }} && echo "message " ${{ github.event.commits[0].message }}
