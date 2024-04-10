@@ -11,5 +11,7 @@ jobs:
   create-pull-request:
     needs: [read-and-print]
     runs-on: ubuntu-22.04
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - run: gh pr create --title "New Pullrequest!" --body "this was made with github actions!"
