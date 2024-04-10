@@ -1,6 +1,8 @@
 name: push-pull-request-issue
 
 on: [push]
+permissions: write
+
 jobs:
   read-and-print:
     runs-on: ubuntu-22.04
@@ -11,7 +13,6 @@ jobs:
   create-pull-request:
     needs: [read-and-print]
     runs-on: ubuntu-22.04
-    permissions: write
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
