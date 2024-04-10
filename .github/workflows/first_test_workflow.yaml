@@ -1,9 +1,7 @@
 name: push-pull-request-issue
 
 on: [push]
-permissions:
-  pull-requests: write
-  issues: write
+permissions: write-all
 
 jobs:
   read-and-print:
