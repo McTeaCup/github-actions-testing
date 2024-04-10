@@ -1,7 +1,7 @@
 name: push-pull-request-issue
 
 on: [push]
-permissions: write
+permissions: write-all
 
 jobs:
   read-and-print:
