@@ -5,4 +5,11 @@ jobs:
   read-and-print:
     runs-on: ubuntu-22.04
     steps:
-      - run: echo "commiter" ${{ github.actor }} && echo "message " ${{ github.event.commits[0].message }}
+      - run: echo "Commiter" ${{ github.actor }}
+      - run: echo "Message " ${{ github.event.commits[0].message }}
+
+  create-pull-request:
+    needs: [read-and-print]
+    runs-on: ubuntu-22.04
+    steps:
+      - run: gh pr create --title "New Pullrequest!" --body "this was made with github actions!"
