@@ -3,6 +3,7 @@ name: push-pull-request-issue
 on: [push]
 permissions:
   pull-requests: write
+  issues: write
 
 jobs:
   read-and-print:
@@ -16,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
     steps:
-      - uses: actions/checkout@v4
       - run: gh pr create --title "New Pullrequest!" --body "this was made with github actions!"
+      - run: gh issue create --title "this is a new issue!" --body "wow, pr is ready!" --label "question"
