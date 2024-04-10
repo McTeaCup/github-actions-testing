@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: echo ${{ github.actor }}
-      - run: echo ${{ github.commit.message }}
+      - run: echo ${{ github.commit[0].message }}
