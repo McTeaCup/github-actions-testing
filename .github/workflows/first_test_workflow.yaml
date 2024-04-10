@@ -17,4 +17,5 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
+      - uses: actions/checkout@v2
       - run: gh pr create --title "New Pullrequest!" --body "this was made with github actions!"
