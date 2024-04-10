@@ -5,4 +5,4 @@ jobs:
   read-and-print:
     runs-on: ubuntu-22.04
     steps:
-      - run: echo ${{ github.actor.name }}
+      - run: echo ${{ github.actor }}
