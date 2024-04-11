@@ -19,4 +19,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: gh pr create --title "New Pullrequest!" --body "Description"
-      - run: gh issue create --title "Issue Title" --label "question"
+      - run: gh issue create --title "Issue Title" --body "Issue Description" --label "question"
