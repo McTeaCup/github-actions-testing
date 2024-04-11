@@ -18,5 +18,5 @@ jobs:
       GH_REPO: ${{ github.repository }}
     steps:
       - uses: actions/checkout@v4
-      - run: gh pr create --title "New Pullrequest!"
+      - run: gh pr create --title "New Pullrequest!" --body "Description"
       - run: gh issue create --title "Issue Title" --label "question"
