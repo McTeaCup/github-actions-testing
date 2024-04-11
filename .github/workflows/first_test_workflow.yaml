@@ -3,6 +3,7 @@ name: push-pull-request-issue
 on: [push]
 permissions:
   pull-requests: write
+  actions: read
   issues: write
 
 jobs:
